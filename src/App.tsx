@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import DashboardLayout from "@/components/DashboardLayout";
 import Index from "./pages/Index";
+import ProductMaster from "./pages/inventory/ProductMaster";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
                 <DashboardLayout>
                   <Routes>
                     <Route path="/" element={<Index />} />
+                    <Route path="/inventory/products" element={<ProductMaster />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

@@ -7,6 +7,7 @@ import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import DashboardLayout from "@/components/DashboardLayout";
 import Index from "./pages/Index";
 import ProductMaster from "./pages/inventory/ProductMaster";
+import ChartOfAccounts from "./pages/accounts/ChartOfAccounts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
                   <Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/inventory/products" element={<ProductMaster />} />
+                    <Route path="/accounts/chart" element={<ChartOfAccounts />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

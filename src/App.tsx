@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import ProductMaster from "./pages/inventory/ProductMaster";
 import ChartOfAccounts from "./pages/accounts/ChartOfAccounts";
 import ShelvesRacksBins from "./pages/inventory/ShelvesRacksBins";
+import Locations from "./pages/inventory/Locations";
+import BatchNumbers from "./pages/inventory/BatchNumbers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
                     <Route path="/inventory/products" element={<ProductMaster />} />
                     <Route path="/accounts/chart" element={<ChartOfAccounts />} />
                     <Route path="/inventory/shelves" element={<ShelvesRacksBins />} />
+                    <Route path="/inventory/locations" element={<Locations />} />
+                    <Route path="/inventory/batches" element={<BatchNumbers />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

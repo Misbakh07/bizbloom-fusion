@@ -35,6 +35,7 @@ const App = () => (
                     <Route path="/inventory/shelves" element={<ShelvesRacksBins />} />
                     <Route path="/inventory/locations" element={<Locations />} />
                     <Route path="/inventory/batches" element={<BatchNumbers />} />
+                    <Route path="/inventory/groups" element={<InventoryGroups />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

@@ -32,6 +32,8 @@ const App = () => (
                     <Route path="/inventory/products" element={<ProductMaster />} />
                     <Route path="/accounts/chart" element={<ChartOfAccounts />} />
                     <Route path="/inventory/shelves" element={<ShelvesRacksBins />} />
+                    <Route path="/inventory/locations" element={<Locations />} />
+                    <Route path="/inventory/batches" element={<BatchNumbers />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

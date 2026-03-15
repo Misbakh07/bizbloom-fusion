@@ -12,6 +12,7 @@ import ShelvesRacksBins from "./pages/inventory/ShelvesRacksBins";
 import Locations from "./pages/inventory/Locations";
 import BatchNumbers from "./pages/inventory/BatchNumbers";
 import InventoryGroups from "./pages/inventory/InventoryGroups";
+import ProductAttributes from "./pages/inventory/ProductAttributes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
                     <Route path="/inventory/locations" element={<Locations />} />
                     <Route path="/inventory/batches" element={<BatchNumbers />} />
                     <Route path="/inventory/groups" element={<InventoryGroups />} />
+                    <Route path="/inventory/attributes" element={<ProductAttributes />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

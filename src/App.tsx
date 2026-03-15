@@ -13,6 +13,7 @@ import Locations from "./pages/inventory/Locations";
 import BatchNumbers from "./pages/inventory/BatchNumbers";
 import InventoryGroups from "./pages/inventory/InventoryGroups";
 import ProductAttributes from "./pages/inventory/ProductAttributes";
+import PriceListSetup from "./pages/inventory/PriceListSetup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

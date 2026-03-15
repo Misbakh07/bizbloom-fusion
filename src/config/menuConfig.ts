@@ -84,6 +84,7 @@ export const menuGroups: MenuGroup[] = [
       { id: "price-list", title: "Price List Setup", url: "/inventory/price-list" },
       { id: "bill-of-material", title: "Bill of Material", url: "/inventory/bom" },
       { id: "services", title: "Services", url: "/inventory/services" },
+      { id: "product-attributes", title: "Product Attributes", url: "/inventory/attributes" },
     ],
   },
   {

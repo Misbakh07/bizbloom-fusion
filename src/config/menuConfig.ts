@@ -198,6 +198,7 @@ export const menuGroups: MenuGroup[] = [
       { id: "purchase-report", title: "Purchase Report", url: "/reports/purchase" },
       { id: "financial-report", title: "Financial Report", url: "/reports/financial" },
       { id: "inventory-report", title: "Inventory Report", url: "/reports/inventory" },
+      { id: "inventory-valuation", title: "Inventory Valuation", url: "/reports/inventory-valuation" },
       { id: "trial-balance", title: "Trial Balance", url: "/reports/trial-balance" },
       { id: "profit-loss", title: "Profit & Loss", url: "/reports/profit-loss" },
       { id: "balance-sheet", title: "Balance Sheet", url: "/reports/balance-sheet" },

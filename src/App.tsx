@@ -15,6 +15,7 @@ import InventoryGroups from "./pages/inventory/InventoryGroups";
 import ProductAttributes from "./pages/inventory/ProductAttributes";
 import PriceListSetup from "./pages/inventory/PriceListSetup";
 import BarcodeMaster from "./pages/inventory/BarcodeMaster";
+import InventoryValuation from "./pages/reports/InventoryValuation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
                     <Route path="/inventory/attributes" element={<ProductAttributes />} />
                     <Route path="/inventory/price-list" element={<PriceListSetup />} />
                     <Route path="/inventory/barcodes" element={<BarcodeMaster />} />
+                    <Route path="/reports/inventory-valuation" element={<InventoryValuation />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

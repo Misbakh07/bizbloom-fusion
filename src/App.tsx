@@ -15,6 +15,7 @@ import InventoryGroups from "./pages/inventory/InventoryGroups";
 import ProductAttributes from "./pages/inventory/ProductAttributes";
 import PriceListSetup from "./pages/inventory/PriceListSetup";
 import BarcodeMaster from "./pages/inventory/BarcodeMaster";
+import InventoryValuation from "./pages/reports/InventoryValuation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

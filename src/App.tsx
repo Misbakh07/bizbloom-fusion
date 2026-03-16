@@ -43,6 +43,7 @@ const App = () => (
                     <Route path="/inventory/attributes" element={<ProductAttributes />} />
                     <Route path="/inventory/price-list" element={<PriceListSetup />} />
                     <Route path="/inventory/barcodes" element={<BarcodeMaster />} />
+                    <Route path="/reports/inventory-valuation" element={<InventoryValuation />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

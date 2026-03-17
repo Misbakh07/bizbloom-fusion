@@ -597,10 +597,10 @@ const ChartOfAccounts = () => {
 
           {/* Indicators */}
           <div className="flex items-center gap-1 shrink-0 hidden sm:flex">
-            {node.isCashAccount && <DollarSign size={10} className="text-accent" title="Cash Account" />}
-            {node.isBankAccount && <Building2 size={10} className="text-primary" title="Bank Account" />}
-            {node.isControlAccount && <Settings2 size={10} className="text-warning" title="Control Account" />}
-            {node.budgetControlled && <Target size={10} className="text-chart-4" title="Budget Controlled" />}
+            {node.isCashAccount && <span title="Cash Account"><DollarSign size={10} className="text-accent" /></span>}
+            {node.isBankAccount && <span title="Bank Account"><Building2 size={10} className="text-primary" /></span>}
+            {node.isControlAccount && <span title="Control Account"><Settings2 size={10} className="text-warning" /></span>}
+            {node.budgetControlled && <span title="Budget Controlled"><Target size={10} className="text-chart-4" /></span>}
           </div>
 
           {node.type === "account" && node.status && (

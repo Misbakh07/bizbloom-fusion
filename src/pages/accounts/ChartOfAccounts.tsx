@@ -3,7 +3,7 @@ import {
   ChevronRight, ChevronDown, Plus, Search, GripVertical,
   Edit2, Trash2, Save, X, FolderOpen, FileText,
   DollarSign, TrendingDown, Scale, BarChart3, CreditCard,
-  Layers, Building2, Globe, Users, Tag, Briefcase, Settings2,
+  Layers, Building2, Globe, Users, Tag, Briefcase, Settings2, Target,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

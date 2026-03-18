@@ -54,6 +54,14 @@ const App = () => (
                     <Route path="/inventory/barcodes" element={<BarcodeMaster />} />
                     <Route path="/inventory/forecasting" element={<InventoryForecasting />} />
                     <Route path="/reports/inventory-valuation" element={<InventoryValuation />} />
+                    <Route path="/purchase/order" element={<PurchaseOrder />} />
+                    <Route path="/purchase/invoice" element={<PurchaseInvoice />} />
+                    <Route path="/purchase/recurring" element={<RecurringPurchase />} />
+                    <Route path="/purchase/service" element={<ServicePurchase />} />
+                    <Route path="/purchase/import" element={<ImportPurchase />} />
+                    <Route path="/purchase/return" element={<PurchaseReturn />} />
+                    <Route path="/purchase/grn" element={<GoodReceipt />} />
+                    <Route path="/purchase/debit-note" element={<DebitNote />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

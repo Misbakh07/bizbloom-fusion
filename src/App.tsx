@@ -17,14 +17,6 @@ import PriceListSetup from "./pages/inventory/PriceListSetup";
 import BarcodeMaster from "./pages/inventory/BarcodeMaster";
 import InventoryValuation from "./pages/reports/InventoryValuation";
 import InventoryForecasting from "./pages/inventory/InventoryForecasting";
-import PurchaseOrder from "./pages/purchase/PurchaseOrder";
-import PurchaseInvoice from "./pages/purchase/PurchaseInvoice";
-import RecurringPurchase from "./pages/purchase/RecurringPurchase";
-import ServicePurchase from "./pages/purchase/ServicePurchase";
-import ImportPurchase from "./pages/purchase/ImportPurchase";
-import PurchaseReturn from "./pages/purchase/PurchaseReturn";
-import GoodReceipt from "./pages/purchase/GoodReceipt";
-import DebitNote from "./pages/purchase/DebitNote";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,14 +46,6 @@ const App = () => (
                     <Route path="/inventory/barcodes" element={<BarcodeMaster />} />
                     <Route path="/inventory/forecasting" element={<InventoryForecasting />} />
                     <Route path="/reports/inventory-valuation" element={<InventoryValuation />} />
-                    <Route path="/purchase/order" element={<PurchaseOrder />} />
-                    <Route path="/purchase/invoice" element={<PurchaseInvoice />} />
-                    <Route path="/purchase/recurring" element={<RecurringPurchase />} />
-                    <Route path="/purchase/service" element={<ServicePurchase />} />
-                    <Route path="/purchase/import" element={<ImportPurchase />} />
-                    <Route path="/purchase/return" element={<PurchaseReturn />} />
-                    <Route path="/purchase/grn" element={<GoodReceipt />} />
-                    <Route path="/purchase/debit-note" element={<DebitNote />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

@@ -95,9 +95,11 @@ export const menuGroups: MenuGroup[] = [
     items: [
       { id: "purchase-order", title: "Purchase Order", url: "/purchase/order" },
       { id: "purchase-invoice", title: "Purchase Invoice", url: "/purchase/invoice" },
+      { id: "recurring-purchase", title: "Recurring Purchase", url: "/purchase/recurring" },
+      { id: "service-purchase", title: "Service Purchase", url: "/purchase/service" },
+      { id: "import-purchase", title: "Import Purchase Invoice", url: "/purchase/import" },
       { id: "purchase-return", title: "Purchase Return", url: "/purchase/return" },
       { id: "grn", title: "Good Receipts / GRN", url: "/purchase/grn" },
-      { id: "import-purchase", title: "Import Purchase", url: "/purchase/import" },
       { id: "debit-note", title: "Debit Note", url: "/purchase/debit-note" },
     ],
   },

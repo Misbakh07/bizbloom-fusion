@@ -66,6 +66,10 @@ const App = () => (
                     <Route path="/purchase/return" element={<PurchaseReturn />} />
                     <Route path="/purchase/grn" element={<GoodReceipt />} />
                     <Route path="/purchase/debit-note" element={<DebitNote />} />
+                    <Route path="/tax/vat" element={<VAT />} />
+                    <Route path="/tax/sales" element={<SalesTax />} />
+                    <Route path="/tax/income" element={<IncomeTax />} />
+                    <Route path="/tax/return" element={<TaxReturn />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </DashboardLayout>

@@ -25,6 +25,10 @@ import ImportPurchase from "./pages/purchase/ImportPurchase";
 import PurchaseReturn from "./pages/purchase/PurchaseReturn";
 import GoodReceipt from "./pages/purchase/GoodReceipt";
 import DebitNote from "./pages/purchase/DebitNote";
+import VAT from "./pages/tax/VAT";
+import SalesTax from "./pages/tax/SalesTax";
+import IncomeTax from "./pages/tax/IncomeTax";
+import TaxReturn from "./pages/tax/TaxReturn";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

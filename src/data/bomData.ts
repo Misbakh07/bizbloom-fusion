@@ -1,9 +1,9 @@
 // ─── Types ───
-type BomStatus = "draft" | "pending" | "approved" | "obsolete";
-type BomType = "manufacturing" | "assembly" | "kit" | "phantom" | "subcontract";
-type CostMethod = "last" | "average" | "standard";
+export type BomStatus = "draft" | "pending" | "approved" | "obsolete";
+export type BomType = "manufacturing" | "assembly" | "kit" | "phantom" | "subcontract";
+export type CostMethod = "last" | "average" | "standard";
 
-interface BomComponent {
+export interface BomComponent {
   id: string;
   productCode: string;
   description: string;
@@ -20,7 +20,7 @@ interface BomComponent {
   notes: string;
 }
 
-interface BomOperation {
+export interface BomOperation {
   id: string;
   seq: number;
   name: string;
@@ -31,7 +31,7 @@ interface BomOperation {
   outsourced: boolean;
 }
 
-interface Bom {
+export interface Bom {
   id: string;
   code: string;
   version: string;
@@ -61,12 +61,12 @@ interface Bom {
   operations: BomOperation[];
 }
 
-const workCenters = ["Machining Cell A", "Welding Bay", "Assembly Line 1", "Paint Booth", "QC Station", "Packing"];
-const locations = ["Central Warehouse", "Abu Dhabi Branch", "Sharjah DC", "Production Floor"];
+export const workCenters = ["Machining Cell A", "Welding Bay", "Assembly Line 1", "Paint Booth", "QC Station", "Packing"];
+export const locations = ["Central Warehouse", "Abu Dhabi Branch", "Sharjah DC", "Production Floor"];
 
-const uid = () => Math.random().toString(36).slice(2, 10);
+export const uid = () => Math.random().toString(36).slice(2, 10);
 
-const initialBoms: Bom[] = [
+export const initialBoms: Bom[] = [
   {
     id: "1", code: "BOM-1001", version: "v2.1", productCode: "PRD-009", productName: "Air Compressor 10HP Screw",
     uom: "PCS", type: "manufacturing", status: "approved", batchSize: 1, yieldPercent: 97, costMethod: "average",
@@ -135,7 +135,7 @@ const initialBoms: Bom[] = [
   },
 ];
 
-const emptyBom: Omit<Bom, "id"> = {
+export const emptyBom: Omit<Bom, "id"> = {
   code: "", version: "v1.0", productCode: "", productName: "", uom: "PCS", type: "manufacturing",
   status: "draft", batchSize: 1, yieldPercent: 100, costMethod: "average", overheadPercent: 0,
   currency: "AED", effectiveFrom: new Date().toISOString().slice(0, 10), effectiveTo: "", revisionNo: 1,
@@ -145,7 +145,7 @@ const emptyBom: Omit<Bom, "id"> = {
 };
 
 // ─── Costing helpers ───
-const componentCost = (c: BomComponent, bomsByCode: Record<string, Bom>, depth = 0): number => {
+export const componentCost = (c: BomComponent, bomsByCode: Record<string, Bom>, depth = 0): number => {
   const effQty = c.qtyPer * (1 + c.scrapPercent / 100);
   if (c.isSubAssembly && c.subBomCode && bomsByCode[c.subBomCode] && depth < 8) {
     const sub = bomsByCode[c.subBomCode];
@@ -154,7 +154,7 @@ const componentCost = (c: BomComponent, bomsByCode: Record<string, Bom>, depth =
   return effQty * c.unitCost;
 };
 
-const bomCost = (bom: Bom, bomsByCode: Record<string, Bom>, depth = 0) => {
+export const bomCost = (bom: Bom, bomsByCode: Record<string, Bom>, depth = 0) => {
   const material = bom.components.reduce((s, c) => s + componentCost(c, bomsByCode, depth), 0);
   const labour = bom.operations.reduce(
     (s, o) => s + ((o.setupMins / Math.max(bom.batchSize, 1)) + o.runMinsPerUnit) / 60 * o.ratePerHour, 0
@@ -165,4 +165,4 @@ const bomCost = (bom: Bom, bomsByCode: Record<string, Bom>, depth = 0) => {
   return { material, labour, overhead, unitTotal };
 };
 
-const money = (n: number) => n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+export const money = (n: number) => n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });

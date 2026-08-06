@@ -19,6 +19,9 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import ProductStockPanel from "@/components/inventory/ProductStockPanel";
+import ProductBomPanel from "@/components/inventory/ProductBomPanel";
+import { sampleProducts } from "@/components/purchase/purchaseData";
 
 /* ───── Reusable field row ───── */
 const Field = ({ label, children, className = "" }: { label: string; children: React.ReactNode; className?: string }) => (
@@ -109,6 +112,8 @@ const ProductMaster = () => {
     ["Wholesale Price", "120.00", "USD"],
   ]);
   const [binRows, setBinRows] = useState<string[][]>([["A1-01"], ["A1-02"]]);
+  const [selectedCode, setSelectedCode] = useState(sampleProducts[0].code);
+  const selected = sampleProducts.find((p) => p.code === selectedCode) ?? sampleProducts[0];
 
   return (
     <div className="space-y-4 max-w-[1600px]">
@@ -124,6 +129,18 @@ const ProductMaster = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
+          <Select value={selectedCode} onValueChange={setSelectedCode}>
+            <SelectTrigger className="h-8 w-[300px] text-xs">
+              <SelectValue placeholder="Select product" />
+            </SelectTrigger>
+            <SelectContent>
+              {sampleProducts.map((p) => (
+                <SelectItem key={p.code} value={p.code} className="text-xs">
+                  {p.code} — {p.description}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Button variant="outline" size="sm" className="gap-1.5 text-xs">
             <Search size={14} /> Search
           </Button>
@@ -149,10 +166,10 @@ const ProductMaster = () => {
       <Tabs defaultValue="basic" className="space-y-4">
         <TabsList className="bg-secondary/40 flex flex-wrap h-auto gap-1 p-1">
           {[
-            "basic", "pricing", "locations", "other", "fitment", "channels",
+            "basic", "stock", "bom", "pricing", "locations", "other", "fitment", "channels",
           ].map((t) => (
             <TabsTrigger key={t} value={t} className="text-xs capitalize data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-              {t === "basic" ? "Basic Details" : t === "pricing" ? "Pricing & Cost" : t === "channels" ? "Web Store & POS" : t.charAt(0).toUpperCase() + t.slice(1)}
+              {t === "basic" ? "Basic Details" : t === "stock" ? "Stock & Availability" : t === "bom" ? "Bill of Material" : t === "pricing" ? "Pricing & Cost" : t === "channels" ? "Web Store & POS" : t.charAt(0).toUpperCase() + t.slice(1)}
             </TabsTrigger>
           ))}
         </TabsList>
@@ -168,7 +185,7 @@ const ProductMaster = () => {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   <Field label="Stock / Product Code">
-                    <Input placeholder="PRD-00001" className="h-8 text-xs font-mono" />
+                    <Input key={selected.code} defaultValue={selected.code} placeholder="PRD-00001" className="h-8 text-xs font-mono" />
                   </Field>
                   <Field label="Serial Number">
                     <Input placeholder="SN-000000" className="h-8 text-xs font-mono" />
@@ -177,14 +194,14 @@ const ProductMaster = () => {
                     <Input placeholder="8471.30.00" className="h-8 text-xs font-mono" />
                   </Field>
                   <Field label="Product Description" className="sm:col-span-2">
-                    <Input placeholder="Enter product description" className="h-8 text-xs" />
+                    <Input key={selected.code} defaultValue={selected.description} placeholder="Enter product description" className="h-8 text-xs" />
                   </Field>
                   <Field label="Description Translation">
                     <Input placeholder="ترجمہ / الترجمة" className="h-8 text-xs" dir="rtl" />
                   </Field>
                   <Field label="Barcode">
                     <div className="flex gap-1.5">
-                      <Input placeholder="Scan or enter barcode" className="h-8 text-xs font-mono" />
+                      <Input key={selected.code} defaultValue={selected.barcode} placeholder="Scan or enter barcode" className="h-8 text-xs font-mono" />
                       <Button size="icon" variant="outline" className="h-8 w-8 shrink-0">
                         <Barcode size={14} />
                       </Button>
@@ -308,7 +325,7 @@ const ProductMaster = () => {
                     <Input type="number" placeholder="0" className="h-8 text-xs font-mono" />
                   </Field>
                   <Field label="Reorder Level">
-                    <Input type="number" placeholder="0" className="h-8 text-xs font-mono" />
+                    <Input key={selected.code} type="number" defaultValue={selected.reorderLevel} placeholder="0" className="h-8 text-xs font-mono" />
                   </Field>
                   <Field label="Expiry Date">
                     <Input type="date" className="h-8 text-xs" />
@@ -391,6 +408,16 @@ const ProductMaster = () => {
               </Card>
             </div>
           </div>
+        </TabsContent>
+
+        {/* ════════ TAB — Stock & Availability ════════ */}
+        <TabsContent value="stock" className="space-y-4">
+          <ProductStockPanel key={selected.code} product={selected} />
+        </TabsContent>
+
+        {/* ════════ TAB — Bill of Material ════════ */}
+        <TabsContent value="bom" className="space-y-4">
+          <ProductBomPanel key={selected.code} product={selected} />
         </TabsContent>
 
         {/* ════════ TAB 2 — Pricing & Cost ════════ */}
